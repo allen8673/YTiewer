@@ -1,0 +1,36 @@
+﻿<mCtrl:MetroWindow x:Class="YTiewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YTiewer"
+        xmlns:prop="clr-namespace:YTiewer.Properties"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:mCtrl="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        xmlns:view="clr-namespace:YTiewer.View"
+        Title="YTPlayer" Height="351.373" Width="525.84"
+        UseNoneWindowStyle="False"
+        Topmost="{Binding Source={x:Static prop:Settings.Default}, Path=KeepTopmost, Mode=TwoWay}">
+
+    <mCtrl:MetroWindow.RightWindowCommands>
+        <mCtrl:WindowCommands>
+            <Button Name="SearchVideo" Content="Search" Click="SearchVideo_Click"/>
+            <Button Name="Position" Content="Position" Click="Position_Click"/>
+            <Button Name="TopmostBtn" Content="Topmost" Click="TopmostBtn_Click"/>
+        </mCtrl:WindowCommands>
+    </mCtrl:MetroWindow.RightWindowCommands>
+    <Grid >
+        <view:YTView></view:YTView>
+    </Grid>
+    <mCtrl:MetroWindow.Flyouts>
+        <mCtrl:FlyoutsControl>
+            <mCtrl:Flyout Name="SearchFlyout"  Position="Bottom"  FontSize="12" Margin="1,200,1,1">
+                <view:UrlView Margin="1,1,1,1"></view:UrlView>
+            </mCtrl:Flyout>
+            <mCtrl:Flyout Name="LocationFlyout" Position="Left"  FontSize="12" Margin="1">
+                <view:LocationView x:Name="LocationSetting" Margin="1,1,1,1"></view:LocationView>
+            </mCtrl:Flyout>
+        </mCtrl:FlyoutsControl>
+    </mCtrl:MetroWindow.Flyouts>
+</mCtrl:MetroWindow>

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="YTiewer.View.YTView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YTiewer.View"
+      mc:Ignorable="d" 
+      xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" 
+      xmlns:unity="clr-namespace:YTiewer.Unity"
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="#FF1D1C1C">
+        <cef:ChromiumWebBrowser Name="YTViewer" Address="{Binding Source={x:Static unity:YTInfo.Detail}, Path=EmbedeURL, Mode=TwoWay}"></cef:ChromiumWebBrowser>
+    </Grid>
+</UserControl>
